@@ -15,8 +15,8 @@ document.getElementById("forward").addEventListener('click', function () {
 document.getElementById("backward").addEventListener('click', function () {
     clearInterval(firstInterval);
     secondInterval = setInterval(function () {
-        document.getElementById("myInput").value += document.getElementById("output").value.charAt(0);
-        document.getElementById("output").value = document.getElementById("output").value.substr(1);
+        document.getElementById("myInput").value = document.getElementById("output").value.charAt(document.getElementById("output").value.length-1) + document.getElementById("myInput").value;
+        document.getElementById("output").value = document.getElementById("output").value.substr(0,document.getElementById("output").value.length-1);
         if(document.getElementById("output").value.length == 0){
             clearInterval(firstInterval);
        }    }, 1000)
